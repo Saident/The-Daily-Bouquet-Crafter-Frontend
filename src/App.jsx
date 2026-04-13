@@ -170,23 +170,23 @@ export default function App() {
 
         {/* Tab switcher */}
         <nav style={{
-          display: 'flex', gap: 2, background: '#F0E8DC',
-          borderRadius: 10, padding: 3,
+          display: 'flex', gap: 3, background: '#F0E8DC',
+          borderRadius: 12, padding: 4,
           border: '1px solid #E0D4C0'
         }}>
           {[
-            { key: 'craft', label: 'Craft' },
-            { key: 'gallery', label: `Greenhouse${gallery.length ? ` · ${gallery.length}` : ''}` }
+            { key: 'craft', label: '✂️ Craft' },
+            { key: 'gallery', label: `🌿 Greenhouse${gallery.length ? ` · ${gallery.length}` : ''}` }
           ].map(({ key, label }) => (
             <button
               key={key}
               onClick={() => setView(key)}
               style={{
-                padding: '6px 16px',
-                borderRadius: 8,
+                padding: '8px 20px',
+                borderRadius: 9,
                 border: 'none',
                 cursor: 'pointer',
-                fontSize: 13,
+                fontSize: 15,
                 fontFamily: 'Georgia, serif',
                 fontWeight: view === key ? 600 : 400,
                 color: view === key ? '#1E1410' : '#8A6E60',
@@ -208,21 +208,21 @@ export default function App() {
 
           {/* LEFT PANEL — Garden inventory */}
           <aside style={{
-            width: 110, flexShrink: 0,
+            width: 140, flexShrink: 0,
             background: '#FFFDF9',
             borderRight: '1px solid #E6DDD0',
             display: 'flex', flexDirection: 'column',
-            overflowY: 'auto', padding: '14px 8px 14px',
+            overflowY: 'auto', padding: '16px 10px 16px',
           }}>
             <p style={{
               fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase',
-              color: '#B09888', textAlign: 'center', margin: '0 0 12px',
+              color: '#B09888', textAlign: 'center', margin: '0 0 14px',
               fontFamily: 'system-ui, sans-serif', fontWeight: 500,
             }}>
-              Garden
+              🌿 Today's Garden
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {dailyFlowers.map((type, i) => (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+              {dailyFlowers.length > 0 ? dailyFlowers.map((type, i) => (
                 <div
                   key={`${type}-${i}`}
                   onPointerDown={e => onInventoryDown(e, type)}
@@ -230,10 +230,10 @@ export default function App() {
                   style={{
                     background: '#F7F2EB',
                     border: '1px solid #E0D4C0',
-                    borderRadius: 10,
-                    padding: '10px 6px 8px',
+                    borderRadius: 12,
+                    padding: '12px 8px 10px',
                     cursor: 'grab',
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5,
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
                     userSelect: 'none', touchAction: 'none',
                     transition: 'border-color 0.15s, transform 0.1s, box-shadow 0.15s',
                   }}
@@ -248,12 +248,37 @@ export default function App() {
                     e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
-                  <img src={`/flowers/${type}`} alt={formatImageName(type)} style={{ width: 48, height: 48, objectFit: 'contain', pointerEvents: 'none' }} draggable="false" />
-                  <span style={{ fontSize: 9.5, color: '#7A6050', textAlign: 'center', lineHeight: 1.3, fontFamily: 'system-ui, sans-serif' }}>
+                  <img src={`/flowers/${type}`} alt={formatImageName(type)} style={{ width: 58, height: 58, objectFit: 'contain', pointerEvents: 'none' }} draggable="false" />
+                  <span style={{ fontSize: 10, color: '#7A6050', textAlign: 'center', lineHeight: 1.3, fontFamily: 'system-ui, sans-serif' }}>
                     {formatImageName(type)}
                   </span>
                 </div>
-              ))}
+              )) : (
+                // Placeholder skeleton cards while loading
+                Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} style={{
+                    background: '#F7F2EB', border: '1px solid #E0D4C0', borderRadius: 12,
+                    padding: '12px 8px 10px', display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', gap: 8, opacity: 0.5,
+                  }}>
+                    {/* Flower petal SVG placeholder */}
+                    <svg width="58" height="58" viewBox="0 0 58 58" fill="none">
+                      <circle cx="29" cy="29" r="10" fill="#D8CCBC"/>
+                      {[0,60,120,180,240,300].map(deg => (
+                        <ellipse key={deg}
+                          cx={29 + 16 * Math.cos((deg - 90) * Math.PI / 180)}
+                          cy={29 + 16 * Math.sin((deg - 90) * Math.PI / 180)}
+                          rx="7" ry="11"
+                          transform={`rotate(${deg} ${29 + 16 * Math.cos((deg - 90) * Math.PI / 180)} ${29 + 16 * Math.sin((deg - 90) * Math.PI / 180)})`}
+                          fill="#E8DECE"
+                        />
+                      ))}
+                      <circle cx="29" cy="29" r="7" fill="#D0C4B0"/>
+                    </svg>
+                    <div style={{ width: 44, height: 8, background: '#D8CCBC', borderRadius: 4 }} />
+                  </div>
+                ))
+              )}
             </div>
           </aside>
 
@@ -379,11 +404,11 @@ export default function App() {
 
           {/* RIGHT PANEL — Tools */}
           <aside style={{
-            width: 164, flexShrink: 0,
+            width: 200, flexShrink: 0,
             background: '#FFFDF9',
             borderLeft: '1px solid #E6DDD0',
             display: 'flex', flexDirection: 'column',
-            padding: '16px 12px',
+            padding: '16px 14px',
             gap: 16,
           }}>
             {/* Selected flower label */}

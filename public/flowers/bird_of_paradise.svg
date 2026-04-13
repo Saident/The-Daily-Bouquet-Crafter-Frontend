@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+<line x1="50" y1="80" x2="50" y2="95" stroke="#3a7828" stroke-width="3" stroke-linecap="round"/><path d="M28,70 Q40,65 55,68 Q70,72 80,80 L75,85 Q62,78 50,76 Q38,74 28,78 Z" fill="#3a7828" stroke="#285a18" stroke-width="0.7"/><path d="M30,80 Q20,60 22,40 Q24,20 50,15 L52,18 Q30,24 28,42 Q26,58 36,76 Z" fill="#f07020" stroke="#c04010" stroke-width="0.7"/><path d="M52,18 Q68,15 75,28 Q80,40 72,52 Q64,60 55,58 Q48,50 52,38 Z" fill="#2050c0" stroke="#1030a0" stroke-width="0.7"/>
+</svg>

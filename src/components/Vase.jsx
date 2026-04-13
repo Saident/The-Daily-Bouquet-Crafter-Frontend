@@ -1,5 +1,4 @@
-// Rattan basket — replaces the original glazed vase
-export default function Vase({ size = 120 }) {
+export default function Vase({ size = 2500 }) {
   const w = size;
   const h = size * 1.1;
   const cx = w / 2;

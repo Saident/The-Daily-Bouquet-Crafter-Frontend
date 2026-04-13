@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.fbtn { background:#FFF9F3; border:1.5px solid #E0D4C4; border-radius:12px; padding:10px 8px; cursor:grab; display:flex; flex-direction:column; align-items:center; gap:5px; transition:transform 0.18s, box-shadow 0.18s, border-color 0.18s; user-select:none; -webkit-user-select:none; touch-action:none; }
+.fbtn:hover { transform:translateY(-3px); box-shadow:0 5px 16px rgba(100,60,20,0.1); border-color:#C4856A; }
+.fbtn:active { cursor:grabbing; }
+
+.cbtn { background:#F8F2EA; border:1.5px solid #E0D4C4; border-radius:8px; padding:7px 10px; cursor:pointer; font-family:'Nunito',sans-serif; font-size:13px; color:#3D2B1F; transition:background 0.15s, border-color 0.15s; display:flex; align-items:center; justify-content:center; gap:4px; }
+.cbtn:hover:not(:disabled) { background:#F0E8DC; border-color:#C4856A; }
+.cbtn:disabled { opacity:0.35; cursor:not-allowed; }
+
+.sbtn { background:#C4856A; border:none; border-radius:12px; padding:12px; color:white; font-family:'Nunito',sans-serif; font-size:14px; font-weight:600; cursor:pointer; letter-spacing:0.03em; transition:background 0.2s, transform 0.15s, box-shadow 0.2s; width:100%; }
+.sbtn:hover:not(:disabled) { background:#B0704E; transform:translateY(-1px); box-shadow:0 6px 18px rgba(196,133,106,0.35); }
+.sbtn:disabled { opacity:0.4; cursor:not-allowed; }
+
+.tabbtn { background:none; border:none; font-family:'Cormorant Garamond',serif; font-size:16px; cursor:pointer; padding:8px 14px; border-radius:8px; transition:background 0.2s, color 0.2s; color:#9A7A68; }
+.tabbtn.on { background:#F3EDE3; color:#2C1F14; font-weight:600; }
+.tabbtn:hover:not(.on) { background:#F5EFE740; }
+
+input[type=text] { background:#FFF9F3; border:1.5px solid #E0D4C4; border-radius:8px; padding:8px 11px; font-family:'Nunito',sans-serif; font-size:13px; color:#3D2B1F; width:100%; outline:none; transition:border-color 0.15s; }
+input[type=text]:focus { border-color:#C4856A; }
+input[type=text]::placeholder { color:#B8A898; }
+
+.gcard { background:#FFF9F3; border:1.5px solid #E0D4C4; border-radius:14px; padding:12px; animation:popIn 0.3s ease; }
+.cf { position:absolute; touch-action:none; cursor:grab; }
+.cf:active { cursor:grabbing; }
+.cf.sel { filter:drop-shadow(0 0 7px rgba(196,133,106,0.75)); }
+
+@keyframes particleFloat { 0%{transform:translate(0,0) scale(1);opacity:1} 70%{opacity:0.8} 100%{transform:translate(var(--px),var(--py)) scale(0.1);opacity:0} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes popIn { from{opacity:0;transform:scale(0.88)} to{opacity:1;transform:scale(1)} }
+@keyframes flashIn { 0%{opacity:0;transform:scale(0.9)} 20%{opacity:1;transform:scale(1.02)} 80%{opacity:1;transform:scale(1)} 100%{opacity:0;transform:scale(1)} }

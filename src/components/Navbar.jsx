@@ -20,13 +20,13 @@ export default function Navbar({ galleryCount }) {
         <div className="flex gap-2">
           <Link 
             to="/"
-            className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl font-serif text-base md:text-lg cursor-pointer transition-all duration-200 ${location.pathname === '/' ? 'bg-[#F3EDE3] text-[#2C1F14] shadow-sm' : 'text-[#9A7A68] hover:bg-[#F5EFE740]'}`} 
+            className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl font-serif text-base md:text-lg cursor-pointer transition-all duration-200 ${location.pathname === '/' ? 'text-[#2C1F14]' : 'text-[#9A7A68] hover:bg-[#F5EFE740]'}`} 
           >
             ✦ Craft
           </Link>
           <Link 
             to="/greenhouse"
-            className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl font-serif text-base md:text-lg cursor-pointer transition-all duration-200 flex items-center ${location.pathname === '/greenhouse' ? 'bg-[#F3EDE3] text-[#2C1F14] shadow-sm' : 'text-[#9A7A68] hover:bg-[#F5EFE740]'}`} 
+            className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl font-serif text-base md:text-lg cursor-pointer transition-all duration-200 flex items-center ${location.pathname === '/greenhouse' ? 'text-[#2C1F14]' : 'text-[#9A7A68] hover:bg-[#F5EFE740]'}`} 
           >
             ❧ Greenhouse
             {galleryCount > 0 && (
